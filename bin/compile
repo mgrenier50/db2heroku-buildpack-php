@@ -15,7 +15,7 @@ heroku_rev='-2'
 MCRYPT_VERSION="2.5.8"
 APACHE_VERSION="2.2.25"
 APACHE_PATH="apache"
-PHP_VERSION="5.3.27"
+PHP_VERSION="5.5.36" #not used
 PHP_PATH="php"
 
 BIN_DIR=$(dirname $0)
@@ -75,7 +75,7 @@ function download_and_install_ibm_db() {
   echo "Installing ibm_db2 ..."
   pecl install ibm_db2
 }
-  
+
 # include .files when moving things around
 shopt -s dotglob
 
@@ -99,7 +99,7 @@ APACHE_URL="https://heroku-buildpack-php.s3.amazonaws.com/apache-""$APACHE_VERSI
 echo "-----> Bundling Apache version $APACHE_VERSION"
 curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
 
-PHP_URL="https://heroku-buildpack-php.s3.amazonaws.com/php-$PHP_VERSION""$heroku_rev"".tar.gz"
+#PHP_URL="https://heroku-buildpack-php.s3.amazonaws.com/php-$PHP_VERSION""$heroku_rev"".tar.gz"
 cp $LP_DIR/php.tar.gz .
 tar -xzf php.tar.gz
 
